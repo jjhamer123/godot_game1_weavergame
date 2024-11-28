@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ipb0asjlf52w"]
+
+[ext_resource type="Texture2D" uid="uid://8e75yfxhq1kj" path="res://Game Assets/Sprites/good eye.png" id="1_atvoq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32wer"]
+atlas = ExtResource("1_atvoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3for"]
+atlas = ExtResource("1_atvoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bj27p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32wer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3for")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fmkgv"]
+radius = 13.7266
+height = 54.3428
+
+[node name="Player" type="Node2D"]
+texture_filter = 1
+texture_repeat = 3
+position = Vector2(235, 376)
+scale = Vector2(2, 2)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_bj27p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, 7)
+rotation = 0.598648
+shape = SubResource("CapsuleShape2D_fmkgv")
